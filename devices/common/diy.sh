@@ -25,7 +25,7 @@ sed -i -e '/^\/etc\/profile/d' \
 rm -rf package/network/utils/nftables package/network/config/firewall package/network/config/firewall4 \
 		package/system/fstools package/libs/libnftnl package/firmware/wireless-regdb
 
-git_sparse_clone openwrt-24.10 "https://github.com/immortalwrt/immortalwrt" \
+git_clone_path openwrt-24.10 "https://github.com/immortalwrt/immortalwrt" \
         package/network/utils/nftables \
         package/network/config/firewall package/network/config/firewall4 package/system/fstools \
         package/libs/libnftnl package/firmware/wireless-regdb
