@@ -13,9 +13,14 @@ sed -i '/	refresh_config();/d' scripts/feeds
 ./scripts/feeds install -a -p kiddin9 -f
 ./scripts/feeds install -a
 
-rm -rf package/base-files
-mv -f feeds/kiddin9/base-files package/
-
+sed -i "/DISTRIB_DESCRIPTION/c\DISTRIB_DESCRIPTION=\"%D %C by Kiddin'\"" package/base-files/files/etc/openwrt_release
+sed -i -e '$a /etc/bench.log' \
+        -e '/\/etc\/profile/d' \
+        -e '/\/etc\/shinit/d' \
+        package/base-files/files/lib/upgrade/keep.d/base-files-essential
+sed -i -e '/^\/etc\/profile/d' \
+        -e '/^\/etc\/shinit/d' \
+        package/base-files/Makefile
 
 echo "$(date +"%s")" >version.date
 sed -i '/$(curdir)\/compile:/c\$(curdir)/compile: package/opkg/host/compile' package/Makefile
