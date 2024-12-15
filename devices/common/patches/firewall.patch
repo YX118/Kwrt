@@ -49,8 +49,8 @@
  	$(INSTALL_CONF) $(PKG_BUILD_DIR)/helpers.conf $(1)/usr/share/fw3
  endef
 
---- a/luci-app-firewall/htdocs/luci-static/resources/view/package/network/config/firewall/zones.js
-+++ b/luci-app-firewall/htdocs/luci-static/resources/view/package/network/config/firewall/zones.js
+--- a/package/feeds/luci/luci-app-firewall/htdocs/luci-static/resources/view/package/network/config/firewall/zones.js
++++ b/package/feeds/luci/luci-app-firewall/htdocs/luci-static/resources/view/package/network/config/firewall/zones.js
 @@ -63,6 +63,43 @@ return view.extend({
  				o = s.option(form.Flag, 'fullcone6', _('Enable FullCone NAT6'));
  		}
