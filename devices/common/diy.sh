@@ -22,6 +22,14 @@ sed -i -e '/^\/etc\/profile/d' \
         -e '/^\/etc\/shinit/d' \
         package/base-files/Makefile
 
+rm -rf package/network/utils/nftables package/network/config/firewall package/network/config/firewall4 \
+		package/system/fstools package/libs/libnftnl package/firmware/wireless-regdb
+
+git_sparse_clone openwrt-24.10 "https://github.com/immortalwrt/immortalwrt" \
+        package/network/utils/nftables \
+        package/network/config/firewall package/network/config/firewall4 package/system/fstools \
+        package/libs/libnftnl package/firmware/wireless-regdb
+
 echo "$(date +"%s")" >version.date
 sed -i '/$(curdir)\/compile:/c\$(curdir)/compile: package/opkg/host/compile' package/Makefile
 sed -i "s/DEFAULT_PACKAGES:=/DEFAULT_PACKAGES:=luci-app-advancedplus luci-app-firewall luci-app-package-manager luci-app-upnp luci-app-syscontrol \
