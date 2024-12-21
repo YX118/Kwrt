@@ -22,7 +22,7 @@
 
 --- a/target/linux/mediatek/image/filogic.mk
 +++ b/target/linux/mediatek/image/filogic.mk
-@@ -942,19 +942,11 @@ define Device/netcore_n60
+@@ -1096,18 +1096,11 @@ define Device/netcore_n60
    BLOCKSIZE := 128k
    PAGESIZE := 2048
    KERNEL_IN_UBI := 1
